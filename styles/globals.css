@@ -78,7 +78,7 @@
 }
 
 .white_btn {
-  @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-transparent hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
@@ -86,7 +86,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-gray-200 sm:text-6xl;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-white sm:text-6xl;
 }
 
 .orange_gradient {
@@ -97,8 +97,8 @@
   @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
 }
 
-.blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+.purple_gradient {
+  @apply bg-gradient-to-r from-purple-600 to-red-600 bg-clip-text text-transparent;
 }
 
 .desc {
