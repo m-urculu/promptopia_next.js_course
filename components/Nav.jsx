@@ -33,13 +33,12 @@ const Nav = () => {
         <p className='logo_text'>Promptopia</p>
       </Link>
 
-
       {/* Desktop Navigation*/}
 
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-prompt' className='black_btn'>
+            <Link href='/create-prompt' className='white_btn'>
               Create Post
             </Link>
 
@@ -65,7 +64,7 @@ const Nav = () => {
                   type='button'
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className='black_btn'
+                  className='white_btn'
                 >
                   Sign In
                 </button>
@@ -73,7 +72,6 @@ const Nav = () => {
           </>
         )}
       </div>
-
 
       {/* Mobile Navigation */}
 
@@ -111,7 +109,7 @@ const Nav = () => {
                     settoggleDropdown(false)
                     signOut()
                   }}
-                  className='mt-5 w-full black_btn'
+                  className='mt-5 w-full white_btn'
                 >
                   Sign Out
                 </button>
@@ -126,7 +124,7 @@ const Nav = () => {
                   type='button'
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className='black_btn'
+                  className='white_btn'
                 >
                   Sign In
                 </button>
