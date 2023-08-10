@@ -16,6 +16,28 @@ const CreatePrompt = () => {
     tag: "",
   })
 
+  // Handle Image state
+  const [imageSrc, setImageSrc] = useState({
+    img: "",
+  })
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+
+    reader.onloadend = () => {
+      setImageSrc({ img: reader.result })
+      console.log({ img: reader.result })
+    }
+
+    if (file) {
+      reader.readAsDataURL(file)
+    } else {
+      setImageSrc({ img: "" })
+    }
+  }
+  //
+
   const createPrompt = async (e) => {
     //prevent the browser from reloading the page when submitting the form
     e.preventDefault()
@@ -28,9 +50,9 @@ const CreatePrompt = () => {
           prompt: post.prompt,
           userId: session?.user.id,
           tag: post.tag,
+          img: imageSrc.img,
         }),
       })
-
       if (response.ok) {
         router.push("/")
       }
@@ -48,6 +70,8 @@ const CreatePrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createPrompt}
+      handleImageChange={handleImageChange}
+      imageSrc={imageSrc}
     />
   )
 }

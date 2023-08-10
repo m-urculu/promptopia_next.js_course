@@ -1,6 +1,15 @@
 import Link from "next/link"
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const Form = ({
+  type,
+  post,
+  setPost,
+  submitting,
+  handleSubmit,
+  handleImageChange,
+  imageSrc,
+  setImageSrc,
+}) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -16,6 +25,16 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         className='mt-10 w-full max-w-2xl flex 
         flex-col gap-7 glassmorphism'
       >
+        <div className='flex-center'>
+          <img src={imageSrc.img} className='max-w-xs' />
+        </div>
+        <input
+          className='flex text-sm 
+          bg_purple_gradient rounded-full text-white'
+          accept='image'
+          type='file'
+          onChange={handleImageChange}
+        />
         <label>
           <span
             className='font-satoshi font-semibold 
@@ -45,7 +64,24 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           <input
             value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            onChange={(e) => {
+              // Extract the value
+              const { value } = e.target
+
+              // Split the words
+              const words = value.split(" ")
+
+              // Add a '#' to each word if it doesn't already have one
+              const hashWords = words.map((word) =>
+                word && !word.startsWith("#") ? `#${word}` : word
+              )
+
+              // Join the words back together
+              const newValue = hashWords.join(" ")
+
+              // Update state
+              setPost({ ...post, tag: newValue })
+            }}
             placeholder='#tag'
             required
             className='form_input'

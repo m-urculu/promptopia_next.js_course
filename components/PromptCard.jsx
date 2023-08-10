@@ -13,8 +13,6 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("")
 
   const handleProfileClick = () => {
-    console.log(post)
-
     if (post.creator._id === session?.user.id) return router.push("/profile")
 
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`)
@@ -65,12 +63,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </div>
       </div>
 
+      <img className='mt-5 flex-center gap-4' src={post.img} />
+
       <p className='my-4 font-satoshi text-sm text-gray-200'>{post.prompt}</p>
       <p
         className='font-inter text-sm text-gray-400 cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
-        #{post.tag}
+        {post.tag}
       </p>
       {session?.user.id === post.creator._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
