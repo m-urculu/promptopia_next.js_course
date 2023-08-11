@@ -8,7 +8,6 @@ const Form = ({
   handleSubmit,
   handleImageChange,
   imageSrc,
-  setImageSrc,
 }) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
@@ -23,18 +22,33 @@ const Form = ({
       <form
         onSubmit={handleSubmit}
         className='mt-10 w-full max-w-2xl flex 
-        flex-col gap-7 glassmorphism'
+        flex-col gap-5 mb-4 glassmorphism'
       >
         <div className='flex-center'>
           <img src={imageSrc.img} className='max-w-xs' />
         </div>
-        <input
-          className='flex text-sm 
-          bg_purple_gradient rounded-full text-white'
-          accept='image'
-          type='file'
-          onChange={handleImageChange}
-        />
+        <span
+          className='flex space-x-3 text-sm 
+        bg_purple_gradient rounded-full text-white'
+        >
+          <label
+            htmlFor='file-upload'
+            className='white_img_btn'
+            style={{ cursor: "pointer" }}
+          >
+            Choose Image
+          </label>
+          <input
+            id='file-upload'
+            accept='image/*'
+            type='file'
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
+          <p className='my-1' id='file-name'>
+            No Image Chosen
+          </p>
+        </span>
         <label>
           <span
             className='font-satoshi font-semibold 
@@ -57,8 +71,9 @@ const Form = ({
           text-base text-gray-200'
           >
             Tag {` `}
-            <span className='font-normal'>
-              (#product, #webdevelopment, #idea)
+            <span className='font-normal text-gray-400 text-sm'>
+              (#chatGPT, #fitness, #webdevelopment, #midjourney,
+              #stable-difussion)
             </span>
           </span>
 
@@ -87,7 +102,7 @@ const Form = ({
             className='form_input'
           />
         </label>
-        <div className='flex-end mx-3 mb-5 gap-5'>
+        <div className='flex-end mx-3 mt-0.5 gap-5'>
           <Link href='/' className='text-gray-200 text-sm'>
             Cancel
           </Link>
