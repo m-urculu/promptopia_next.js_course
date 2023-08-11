@@ -73,7 +73,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </div>
       </div>
 
-      <p className='my-4 text-center text-xl font-bold inline-block align-bottom text-gray-200'>
+      <p className='my-4 text-center text-xl font-bold inline-block align-bottom text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 from-10% via-purple-500 via-30% to-red-400 to-90%'>
         {post.title}
       </p>
 
