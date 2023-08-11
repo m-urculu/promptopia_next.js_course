@@ -5,12 +5,7 @@ import Image from "next/image"
 import { useSession } from "next-auth/react"
 import { usePathname, useRouter } from "next/navigation"
 
-const PromptCard = ({
-  post,
-  handleTagClick,
-  handleEdit,
-  handleDelete,
-}) => {
+const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
   const router = useRouter()
@@ -29,6 +24,15 @@ const PromptCard = ({
     setTimeout(() => setCopied(""), 3000)
   }
 
+  //truncate
+  const [truncated, setTruncated] = useState(true)
+  const toggleTruncation = () => {
+    setTruncated(!truncated)
+  }
+  //
+
+  const tags = post.tag.split(" ")
+
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
@@ -36,13 +40,15 @@ const PromptCard = ({
           className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
           onClick={handleProfileClick}
         >
-          <Image
-            src={post.creator.image}
-            alt='user_image'
-            width={40}
-            height={40}
-            className='rounded-full object-contain'
-          />
+          {post.creator && post.creator.image && (
+            <Image
+              src={post.creator.image}
+              alt='user_image'
+              width={40}
+              height={40}
+              className='rounded-full object-contain'
+            />
+          )}
 
           <div className='flex flex-col'>
             <h3 className='font-satoshi font-semibold text-white'>
@@ -53,7 +59,6 @@ const PromptCard = ({
             </p>
           </div>
         </div>
-
         <div className='copy_btn' onClick={handleCopy}>
           <Image
             src={
@@ -68,15 +73,37 @@ const PromptCard = ({
         </div>
       </div>
 
-      <img className='mt-5 flex-center gap-4' src={post.img} />
-
-      <p className='my-4 font-satoshi text-sm text-gray-200'>{post.prompt}</p>
-      <p
-        className='font-inter text-sm text-gray-400 cursor-pointer'
-        onClick={() => handleTagClick && handleTagClick(post.tag)}
-      >
-        {post.tag}
+      <p className='my-4 text-center text-xl font-bold inline-block align-bottom text-gray-200'>
+        {post.title}
       </p>
+
+      <img className=' flex-center gap-4' src={post.img} />
+
+      <p className={`card_text ${truncated ? "truncate-overflow" : ""}`}>
+        {post.prompt}
+      </p>
+
+      {post.prompt.length > 100 && (
+        <button
+          className='mb-4 font-inter text-sm text-gray-400 cursor-pointer hover:text-blue-500'
+          onClick={toggleTruncation}
+        >
+          {truncated ? "Show More" : "Show Less"}
+        </button>
+      )}
+
+      <div>
+        {tags.map((tag, index) => (
+          <a
+            key={index}
+            className='font-inter text-sm text-gray-400 cursor-pointer hover:text-blue-500'
+            onClick={() => handleTagClick && handleTagClick(tag)}
+          >
+            {`${tag} `}
+          </a>
+        ))}
+      </div>
+
       {session?.user.id === post.creator._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p

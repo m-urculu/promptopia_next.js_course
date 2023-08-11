@@ -24,8 +24,23 @@ const Form = ({
         className='mt-10 w-full max-w-2xl flex 
         flex-col gap-5 mb-4 glassmorphism'
       >
+        <label>
+          <span
+            className='font-satoshi font-semibold 
+          text-base text-gray-200'
+          >
+            Title
+          </span>
+          <textarea
+            value={post.tile}
+            onChange={(e) => setPost({ ...post, title: e.target.value })}
+            placeholder='Write your title here...'
+            required
+            className='form_titlearea max-h-11'
+          />
+        </label>
         <div className='flex-center'>
-          <img src={imageSrc.img} className='max-w-xs' />
+          <img src={imageSrc.img} className='max-w-xs flex-center' />
         </div>
         <span
           className='flex space-x-3 text-sm 
