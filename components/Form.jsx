@@ -7,7 +7,6 @@ const Form = ({
   submitting,
   handleSubmit,
   handleImageChange,
-  imageSrc,
 }) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
@@ -32,7 +31,7 @@ const Form = ({
             Title
           </span>
           <textarea
-            value={post.tile}
+            value={post.title}
             onChange={(e) => setPost({ ...post, title: e.target.value })}
             placeholder='Write your title here...'
             required
@@ -40,7 +39,7 @@ const Form = ({
           />
         </label>
         <div className='flex-center'>
-          <img src={imageSrc.img} className='max-w-xs flex-center' />
+          <img src={post.img} className='max-w-xs flex-center' />
         </div>
         <span
           className='flex space-x-3 text-sm 

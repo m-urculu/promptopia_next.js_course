@@ -12,14 +12,10 @@ const CreatePrompt = () => {
   const { data: session } = useSession()
   const [submitting, setSubmitting] = useState(false)
   const [post, setPost] = useState({
-    title: "",
-    promt: "",
-    tag: "",
-  })
-
-  // Handle Image state
-  const [imageSrc, setImageSrc] = useState({
     img: "",
+    title: "",
+    prompt: "",
+    tag: "",
   })
 
   const handleImageChange = (e) => {
@@ -50,9 +46,9 @@ const CreatePrompt = () => {
         body: JSON.stringify({
           userId: session?.user.id,
           title: post.title,
+          img: post.img,
           prompt: post.prompt,
           tag: post.tag,
-          img: imageSrc.img,
         }),
       })
       if (response.ok) {
@@ -73,7 +69,6 @@ const CreatePrompt = () => {
       submitting={submitting}
       handleSubmit={createPrompt}
       handleImageChange={handleImageChange}
-      imageSrc={imageSrc}
     />
   )
 }
