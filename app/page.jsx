@@ -1,8 +1,9 @@
-import Feed from "@components/Feed"
+import dynamic from "next/dynamic"
+
+const Feed = dynamic(() => import("@components/Feed"))
+// import Feed from "@components/Feed"
 
 const Home = () => {
-  const textFilter = () => {}
-  const imageFilter = () => {}
   return (
     <section className='w-full flex-center flex-col'>
       <h1 className='head_text text-center'>
