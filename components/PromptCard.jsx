@@ -77,7 +77,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         {post.title}
       </p>
 
-      <img className=' flex-center gap-4' src={post.img} />
+      <img alt="" className=' flex-center gap-4' src={post.img} />
 
       <p className={`card_text ${truncated ? "truncate-overflow" : ""}`}>
         {post.prompt}
@@ -92,15 +92,15 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </button>
       )}
 
-      <div>
+      <div className='flex flex-row flex-wrap font-inter text-sm text-gray-400'>
         {tags.map((tag, index) => (
-          <a
+          <div
             key={index}
-            className='font-inter text-sm text-gray-400 cursor-pointer hover:text-blue-500'
+            className='mr-2 cursor-pointer hover:text-blue-500'
             onClick={() => handleTagClick && handleTagClick(tag)}
           >
             {`${tag} `}
-          </a>
+          </div>
         ))}
       </div>
 
