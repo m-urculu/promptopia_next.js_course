@@ -31,6 +31,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
   //
 
+  //image aspect
+
+  //
+
   const tags = post.tag.split(" ")
 
   return (
@@ -77,7 +81,12 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         {post.title}
       </p>
 
-      <img alt="" className=' flex-center gap-4' src={post.img} />
+      <img
+        alt=''
+        className=' flex-center gap-4'
+        style={{ width: "100%", height: "auto" }}
+        src={post.img}
+      />
 
       <p className={`card_text ${truncated ? "truncate-overflow" : ""}`}>
         {post.prompt}
