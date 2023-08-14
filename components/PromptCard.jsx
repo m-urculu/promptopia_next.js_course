@@ -55,9 +55,9 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           )}
 
           <div className='flex flex-col'>
-            <h3 className='font-satoshi font-semibold text-white'>
+            <p className='font-satoshi font-semibold text-white'>
               {post.creator.username}
-            </h3>
+            </p>
             <p className='font-inter text-sm text-gray-200'>
               {post.creator.email}
             </p>
@@ -84,8 +84,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <img
         alt=''
         className=' flex-center gap-4'
-        width='100%'
-        height='auto'
+        width='360px'
+        height='100%'
         src={post.img}
       />
 
@@ -95,14 +95,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
       {post.prompt.length > 100 && (
         <button
-          className='mb-4 font-inter text-sm text-gray-300 cursor-pointer hover:text-blue-500'
+          className='mb-4 font-inter text-sm text-white/90 cursor-pointer hover:text-blue-500'
           onClick={toggleTruncation}
         >
           {truncated ? "Show More" : "Show Less"}
         </button>
       )}
 
-      <div className='flex flex-row flex-wrap font-inter text-sm text-gray-400'>
+      <div className='flex flex-row flex-wrap font-inter text-sm text-white/90'>
         {tags.map((tag, index) => (
           <div
             key={index}
