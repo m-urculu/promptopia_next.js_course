@@ -58,7 +58,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             <h3 className='font-satoshi font-semibold text-white'>
               {post.creator.username}
             </h3>
-            <p className='font-inter text-sm text-gray-400'>
+            <p className='font-inter text-sm text-gray-200'>
               {post.creator.email}
             </p>
           </div>
@@ -94,7 +94,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
       {post.prompt.length > 100 && (
         <button
-          className='mb-4 font-inter text-sm text-gray-400 cursor-pointer hover:text-blue-500'
+          className='mb-4 font-inter text-sm text-gray-300 cursor-pointer hover:text-blue-500'
           onClick={toggleTruncation}
         >
           {truncated ? "Show More" : "Show Less"}
