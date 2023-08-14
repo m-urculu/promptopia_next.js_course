@@ -84,7 +84,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <img
         alt=''
         className=' flex-center gap-4'
-        style={{ width: "100%", height: "auto" }}
+        width='100%'
+        height='auto'
         src={post.img}
       />
 
