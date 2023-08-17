@@ -2,8 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
 
+<details>
+  <summary>#1</summary>
+```bash
+npm i
+# or
+yarn
+# or
+pnpm i
+```</details>
+
+Second, run the development server:
+
+<details>
+  <summary>#2</summary>
 ```bash
 npm run dev
 # or
@@ -11,24 +25,49 @@ yarn dev
 # or
 pnpm dev
 ```
+</details>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Third, create a .env file for your Google Cloud, MongoDB and NextAuth and fill out your credentials:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<details>
+  <summary>Read</summary>
+# GOOGLE 
+GOOGLE_ID=
+GOOGLE_CLIENT_SECRET=
 
-## Learn More
+# MONGODB 
+MONGODB_USER=
+MONGODB_PASSWORD=
+MONGODB_URI=
 
-To learn more about Next.js, take a look at the following resources:
+# LOCAL NEXT
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL_INTERNAL=http://localhost:3000
+NEXTAUTH_SECRET=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# DEPLOYMENT VERCEL
+# NEXTAUTH_URL=
+# NEXTAUTH_URL_INTERNAL=  
+</details>
+Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Source
 
-## Deploy on Vercel
+Course from: [JavaScript Mastery](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## My Added Features:
+
+- Re-color to a darker theme.
+- Image support for stable diffusion and midjourney prompts.
+    - Image upload and store in DB in base64 format.
+    - Retrieve and decrypt image format.
+- Text or Image filter button.
+
+
+
+## Final [Site](https://promptopia-next-js-course.vercel.app)
+
+
+Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
