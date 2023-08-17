@@ -24,7 +24,7 @@ pnpm dev
 
 Third, create a .env file for your Google Cloud, MongoDB and NextAuth and fill out your credentials:
 
-# GOOGLE 
+```# GOOGLE 
 GOOGLE_ID=
 GOOGLE_CLIENT_SECRET=
 
@@ -41,7 +41,7 @@ NEXTAUTH_SECRET=
 # DEPLOYMENT VERCEL
 # NEXTAUTH_URL=
 # NEXTAUTH_URL_INTERNAL=  
-
+```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
