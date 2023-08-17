@@ -56,7 +56,7 @@ Course from: [JavaScript Mastery](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=
 - Re-color to a darker theme.
 - Image support for stable diffusion and midjourney prompts.
     - Image upload and store in DB in base64 format.
-    - Retrieve and decrypt image format.
+    - Retrieve and decrypt image format to posts.
 - Text or Image filter button.
 
 
