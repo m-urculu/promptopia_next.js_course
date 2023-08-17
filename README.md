@@ -61,7 +61,7 @@ Course from: [JavaScript Mastery](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=
 
 
 
-##My Final Website: 
+## My Final Website: 
 [Promptopia Site](https://promptopia-next-js-course.vercel.app)
 
 
