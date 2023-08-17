@@ -61,8 +61,8 @@ Course from: [JavaScript Mastery](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=
 
 
 
-## Final: [Site](https://promptopia-next-js-course.vercel.app)
+My Final: [Site](https://promptopia-next-js-course.vercel.app)
 
 
 
-## Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
+Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
