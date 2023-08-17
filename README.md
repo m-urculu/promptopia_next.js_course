@@ -50,9 +50,9 @@ Then, open [http://localhost:3000](http://localhost:3000) with your browser to s
 
 Course from: 
 
--[JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
+- [JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
 
--[GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
+- [GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
 
 
 ## My Added Features:
@@ -66,7 +66,7 @@ Course from:
 
 
 ## My Final Website: 
--[Promptopia Site](https://promptopia-next-js-course.vercel.app)
+- [Promptopia Site](https://promptopia-next-js-course.vercel.app)
 
 ##
 Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
