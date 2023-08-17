@@ -24,7 +24,7 @@ pnpm dev
 
 Third, create a .env file for your Google Cloud, MongoDB and NextAuth and fill out your credentials:
 
-```
+```.env
 # GOOGLE 
 GOOGLE_ID=
 GOOGLE_CLIENT_SECRET=
