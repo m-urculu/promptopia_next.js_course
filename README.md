@@ -1,5 +1,27 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Source
+
+Course from: 
+
+- [JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
+
+- [GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
+
+
+## My Added Features:
+
+- Re-color to a darker theme.
+- Image support for stable diffusion and midjourney prompts.
+    - Image upload and store in DB in base64 format.
+    - Retrieve and decrypt image format to posts.
+- Text or Image filter button.
+
+
+
+## My Final Website: 
+- [Promptopia Site](https://promptopia-next-js-course.vercel.app)
+
 ## Getting Started
 
 First, install dependencies:
@@ -46,27 +68,6 @@ NEXTAUTH_URL_INTERNAL=
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Source
-
-Course from: 
-
-- [JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
-
-- [GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
-
-
-## My Added Features:
-
-- Re-color to a darker theme.
-- Image support for stable diffusion and midjourney prompts.
-    - Image upload and store in DB in base64 format.
-    - Retrieve and decrypt image format to posts.
-- Text or Image filter button.
-
-
-
-## My Final Website: 
-- [Promptopia Site](https://promptopia-next-js-course.vercel.app)
 
 ##
 Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
