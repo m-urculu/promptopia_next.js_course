@@ -40,8 +40,8 @@ NEXTAUTH_URL_INTERNAL=http://localhost:3000
 NEXTAUTH_SECRET=
 
 # DEPLOYMENT VERCEL
-# NEXTAUTH_URL=
-# NEXTAUTH_URL_INTERNAL=  
+NEXTAUTH_URL=
+NEXTAUTH_URL_INTERNAL=  
 ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
