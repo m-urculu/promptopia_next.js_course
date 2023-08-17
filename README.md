@@ -4,20 +4,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, install dependencies:
 
-<details>
-  <summary>#1</summary>
 ```bash
 npm i
 # or
 yarn
 # or
 pnpm i
-```</details>
+```
 
 Second, run the development server:
 
-<details>
-  <summary>#2</summary>
 ```bash
 npm run dev
 # or
@@ -25,13 +21,9 @@ yarn dev
 # or
 pnpm dev
 ```
-</details>
-
 
 Third, create a .env file for your Google Cloud, MongoDB and NextAuth and fill out your credentials:
 
-<details>
-  <summary>Read</summary>
 # GOOGLE 
 GOOGLE_ID=
 GOOGLE_CLIENT_SECRET=
@@ -49,7 +41,8 @@ NEXTAUTH_SECRET=
 # DEPLOYMENT VERCEL
 # NEXTAUTH_URL=
 # NEXTAUTH_URL_INTERNAL=  
-</details>
+
+
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Source
