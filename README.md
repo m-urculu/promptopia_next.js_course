@@ -49,7 +49,9 @@ Then, open [http://localhost:3000](http://localhost:3000) with your browser to s
 ## Source
 
 Course from: 
+
 [JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
+
 [GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
 
 
