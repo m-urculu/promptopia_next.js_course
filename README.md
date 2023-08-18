@@ -1,8 +1,40 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Source
+
+Course from: 
+
+- [JavaScript Mastery Youtube](https://www.youtube.com/watch?v=wm5gMKuwSYk&t=11502s&ab_channel=JavaScriptMastery)
+
+- [GitHub Page](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing)
+
+
+## My Added Features:
+
+- Re-color to a darker theme.
+- Image support for stable diffusion and midjourney prompts.
+    - Image upload and store in DB in base64 format.
+    - Retrieve and decrypt image format to posts.
+- Text or Image filter button.
+
+
+
+## My Final Website: 
+- [Promptopia Site](https://promptopia-next-js-course.vercel.app)
+
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm i
+# or
+yarn
+# or
+pnpm i
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +44,30 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Third, create a .env file for your Google Cloud, MongoDB and NextAuth and fill out your credentials:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```.env
+# GOOGLE 
+GOOGLE_ID=
+GOOGLE_CLIENT_SECRET=
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# MONGODB 
+MONGODB_USER=
+MONGODB_PASSWORD=
+MONGODB_URI=
 
-## Learn More
+# LOCAL NEXT
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL_INTERNAL=http://localhost:3000
+NEXTAUTH_SECRET=
 
-To learn more about Next.js, take a look at the following resources:
+# DEPLOYMENT VERCEL
+NEXTAUTH_URL=
+NEXTAUTH_URL_INTERNAL=  
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##
+Special thanks to [Adrian](https://github.com/adrianhajdin) for the great course!
