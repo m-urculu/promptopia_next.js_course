@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 
 const Form = ({
   type,
@@ -8,6 +9,25 @@ const Form = ({
   handleSubmit,
   handleImageChange,
 }) => {
+  const [tagInput, setTagInput] = useState(post.tag)
+  const inputRef = useRef()
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const { value } = inputRef.current
+
+      const words = value.split(" ")
+
+      const hashWords = words.map((word) =>
+        word && !word.startsWith("#") ? `#${word}` : word
+      )
+
+      const newValue = hashWords.join(" ")
+
+      setPost({ ...post, tag: newValue })
+    }
+  }, [tagInput])
+
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -92,24 +112,21 @@ const Form = ({
           </span>
 
           <input
-            value={post.tag}
-            onChange={(e) => {
-              // Extract the value
-              const { value } = e.target
+            ref={inputRef}
+            value={tagInput}
+            onChange={(e) => setTagInput(e.target.value)}
+            onBlur={() => {
+              const { value } = inputRef.current
 
-              // Split the words
               const words = value.split(" ")
 
-              // Add a '#' to each word if it doesn't already have one
               const hashWords = words.map((word) =>
                 word && !word.startsWith("#") ? `#${word}` : word
               )
 
-              // Join the words back together
               const newValue = hashWords.join(" ")
 
-              // Update state
-              setPost({ ...post, tag: newValue })
+              setTagInput(newValue)
             }}
             placeholder='#tag'
             required

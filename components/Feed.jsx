@@ -50,6 +50,7 @@ const Feed = () => {
     }))
   }
 
+  // handle Search
   const handleSearchChange = (e) => {
     clearTimeout(state.searchTimeout)
 
@@ -68,6 +69,14 @@ const Feed = () => {
     }))
   }
 
+  // prevent page re-load when pressing enter in the search field
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  };
+
+  // filter the prompts by username, prompt and tag.
   const filterPrompts = (searchText) => {
     const regex = new RegExp(searchText, "i")
     return state.posts.filter(
@@ -114,6 +123,7 @@ const Feed = () => {
           placeholder='Search for a tag or a username'
           value={state.searchText}
           onChange={handleSearchChange}
+          onKeyDown={handleKeyDown}
           required
           className='search_input peer'
         />
