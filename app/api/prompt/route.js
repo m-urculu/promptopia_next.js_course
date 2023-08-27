@@ -11,9 +11,13 @@ export const GET = async (request) => {
       status: 200,
     })
   } catch (error) {
+    console.error("An error occurred:", error.message)
     return new Response(
-      JSON.stringify({ message: "Failed to fetch all prompts" }),
+      JSON.stringify({
+        message: "Failed to fetch all prompts",
+        error: error.message,
+      }),
       { status: 500 }
-    ) 
+    )
   }
 }
