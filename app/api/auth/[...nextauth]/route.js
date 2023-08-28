@@ -13,13 +13,18 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session }) {
-      const sessionUser = await User.findOne({
-        email: session.user.email,
-      })
-      session.user.id = sessionUser._id.toString()
-      return session
+      try {
+        const sessionUser = await User.findOne({
+          email: session.user.email,
+        })
+        session.user.id = sessionUser._id.toString()
+        return session
+      } catch (error) {
+        console.log(error)
+        // Handle the error gracefully
+        throw error
+      }
     },
-  
     async signIn({ profile }) {
       try {
         await connectToDB()
@@ -40,8 +45,8 @@ const handler = NextAuth({
         console.log(error)
         return false
       }
-    }
-  }
+    },
+  },
 })
 
 export { handler as GET, handler as POST }

@@ -1,10 +1,10 @@
 import "@styles/globals.css"
 
-// import Nav from "@components/Nav"
-// import Provider from "@components/Provider"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 
+// import Nav from "@components/Nav"
+// import Provider from "@components/Provider"
 const Nav = dynamic(() => import("@components/Nav"))
 const Provider = dynamic(() => import("@components/Provider"))
 
