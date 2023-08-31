@@ -5,7 +5,7 @@ import User from "@models/user"
 import { ConnectToDB, connectToDB } from "@utils/database"
 
 const handler = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_JWT_SIGNIN_PRIVATE_KEY,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
