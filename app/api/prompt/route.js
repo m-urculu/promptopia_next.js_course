@@ -1,9 +1,13 @@
 import { connectToDB } from "@utils/database"
 import Prompt from "@models/prompt"
+import User from "@models/user"
+import mongoose from "mongoose"
 
 export const GET = async (request) => {
   try {
     await connectToDB()
+
+    const User = mongoose.models.User || mongoose.model("User", userSchema)
 
     const prompts = await Prompt.find({}).populate("creator")
 
