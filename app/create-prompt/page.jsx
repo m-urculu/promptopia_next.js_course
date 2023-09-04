@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
@@ -52,6 +52,7 @@ const CreatePrompt = () => {
         }),
       })
       if (response.ok) {
+        await refreshSession()
         router.push("/")
       }
     } catch (error) {
@@ -60,6 +61,19 @@ const CreatePrompt = () => {
       setSubmitting(false)
     }
   }
+
+  const refreshSession = async () => {
+    try {
+      await session?.refetch()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(refreshSession, 1000 * 60) // Refresh every hour
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <Form

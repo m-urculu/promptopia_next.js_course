@@ -20,6 +20,10 @@ const Nav = () => {
     setUpProviders()
   }, [])
 
+  async function goHome() {
+    await signOut({ callbackUrl: "/" })
+  }
+
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
       <Link href='/' className='flex gap-2 flex-center'>
@@ -33,7 +37,6 @@ const Nav = () => {
         <p className='logo_text'>Promptopia</p>
       </Link>
 
-
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
@@ -41,7 +44,11 @@ const Nav = () => {
               Create Post
             </Link>
 
-            <button type='button' onClick={signOut} className='outline_btn'>
+            <button
+              type='button'
+              onClick={signOut && goHome}
+              className='outline_btn'
+            >
               Sign Out
             </button>
 

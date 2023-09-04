@@ -31,11 +31,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
   //
 
-  //image aspect
-
-  //
-
   const tags = post.tag.split(" ")
+  // console.log(post)
+
+  // Rest of the component rendering
 
   return (
     <div className='prompt_card'>
