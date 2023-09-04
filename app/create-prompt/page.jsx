@@ -23,14 +23,14 @@ const CreatePrompt = () => {
     const reader = new FileReader()
 
     reader.onloadend = () => {
-      setImageSrc({ img: reader.result })
+      setPost({ img: reader.result })
       document.getElementById("file-name").textContent = e.target.files[0].name
     }
 
     if (file) {
       reader.readAsDataURL(file)
     } else {
-      setImageSrc({ img: "" })
+      setPost({ img: "" })
     }
   }
   //
