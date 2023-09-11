@@ -1,4 +1,4 @@
-## Promptopia
+## [Promptopia](https://promptopia-next-js-course.vercel.app)
 
 A full-stack Next.js application for discovering & sharing text and image AI prompts.
 
@@ -28,11 +28,6 @@ Course from:
     - Image upload and store in DB in base64 format.
     - Retrieve and decrypt image format to posts.
 - Text or Image filter button.
-
-
-
-## My Final Website: 
-- [Promptopia Site](https://promptopia-next-js-course.vercel.app)
 
 ## Getting Started
 
