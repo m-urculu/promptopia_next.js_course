@@ -3,7 +3,12 @@
 A full-stack Next.js application for discovering & sharing text and image AI prompts.
 
 Features:
-Sign-in with google account, post prompts to a mongoDB storage, UX/UI built with React & TailwindCSS front-end for better experience and the Next.js framework for the back-end for easy setup and fast performance. Hosted by Vercel with excelent SEO.
+
+- Sign-in with google account.
+- Post prompts to a mongoDB storage.
+- UX/UI built with React & TailwindCSS front-end for better experience.
+- Next.js framework for the back-end for easy setup and fast performance.
+- Hosted by Vercel with excelent SEO.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
