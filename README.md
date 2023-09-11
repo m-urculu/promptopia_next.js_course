@@ -1,4 +1,4 @@
-## [Promptopia](https://promptopia-next-js-course.vercel.app)
+## [Promptopia](https://promptopia-ai-next-js.vercel.app)
 
 A full-stack Next.js application for discovering & sharing text and image AI prompts.
 
