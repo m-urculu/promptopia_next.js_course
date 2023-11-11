@@ -16,7 +16,13 @@ export const POST = async (req, res) => {
 
     await newPrompt.save()
 
-    return new Response(JSON.stringify(newPrompt), { status: 201 })
+    return new Response(JSON.stringify(newPrompt), { 
+      status: 201,       
+      headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
+      } 
+    })
   } catch (error) {
     return new Response("Failed to create a new prompt", { status: 500 })
   }
