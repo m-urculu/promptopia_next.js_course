@@ -9,6 +9,8 @@ export const GET = async (request, { params }) => {
     const prompt = await Prompt.findById(params.id).populate("creator")
     if (!prompt) return new Response("Prompt not found", { status: 404 })
 
+    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
+
     return new Response(JSON.stringify(prompt), {
       status: 200,
       headers: {
@@ -41,6 +43,8 @@ export const PATCH = async (request, { params }) => {
 
     await existingPrompt.save()
 
+    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
+
     return new Response(JSON.stringify(existingPrompt), { 
     status: 200,
     headers: {
@@ -59,6 +63,8 @@ export const DELETE = async (request, { params }) => {
     await connectToDB()
 
     await Prompt.findByIdAndRemove(params.id)
+
+    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
 
     return new Response("Prompt deleted successfully", { 
     status: 200,

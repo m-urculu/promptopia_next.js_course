@@ -16,7 +16,7 @@ export const POST = async (req, res) => {
     
     await newPrompt.save()
     
-    revalidateTag('posts') // Purge all data with the 'posts' tag
+    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
   
     return new Response(JSON.stringify({ 
       prompt: newPrompt, 

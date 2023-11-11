@@ -35,8 +35,6 @@ export const GET = async (request) => {
 
     const prompts = await Prompt.find({}).populate("creator")
 
-    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
-
     return new Response(JSON.stringify(prompts), {
       status: 200,
       headers: {
