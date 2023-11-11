@@ -13,16 +13,28 @@ export const POST = async (req, res) => {
       tag,
       img,
     })
-
+    
     await newPrompt.save()
-
-    return new Response(JSON.stringify(newPrompt), { 
-      status: 201,       
+    
+    revalidateTag('posts') // Purge all data with the 'posts' tag
+  
+    return new Response(JSON.stringify({ 
+      prompt: newPrompt, 
+      revalidated: true,
+      now: Date.now()
+    }), {
+      status: 200,
       headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
-      } 
-    })
+        'Content-Type': 'application/json',
+      }
+    });
+    // return new Response(JSON.stringify(newPrompt), { 
+    //   status: 201,       
+    //   headers: {
+    //   'Content-Type': 'application/json',
+    //   'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
+    //   } 
+    // })
   } catch (error) {
     return new Response("Failed to create a new prompt", { status: 500 })
   }
