@@ -29,14 +29,13 @@ import mongoose from "mongoose"
 
 export const GET = async (request) => {
   try {
-    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
-    
+    // revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
     await connectToDB()
-
+    
     const User = mongoose.models.User || mongoose.model("User", userSchema)
-
+    
     const prompts = await Prompt.find({}).populate("creator")
-
+    
     return new Response(JSON.stringify(prompts), {
       status: 200,
       headers: {
