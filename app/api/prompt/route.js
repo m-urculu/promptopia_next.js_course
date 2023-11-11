@@ -29,6 +29,8 @@ import mongoose from "mongoose"
 
 export const GET = async (request) => {
   try {
+    revalidatePath('/api/prompt') // Purge the server cache for the '/api/prompt' path
+    
     await connectToDB()
 
     const User = mongoose.models.User || mongoose.model("User", userSchema)
