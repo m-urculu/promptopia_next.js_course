@@ -6,8 +6,6 @@ import { revalidateTag } from "next/cache"
 
 export const GET = async (request) => {
   try {
-    revalidateTag('posts') //purge cache with tag 'posts'
-
     await connectToDB()
 
     const User = mongoose.models.User || mongoose.model("User", userSchema)
@@ -18,8 +16,7 @@ export const GET = async (request) => {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
+        'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
       }
     })
   } catch (error) {
@@ -33,3 +30,4 @@ export const GET = async (request) => {
     )
   }
 }
+
