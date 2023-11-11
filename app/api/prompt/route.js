@@ -2,9 +2,12 @@ import { connectToDB } from "@utils/database"
 import Prompt from "@models/prompt"
 import User from "@models/user"
 import mongoose from "mongoose"
+import { revalidateTag } from "next/cache"
 
 export const GET = async (request) => {
   try {
+    revalidateTag('posts') //purge cache with tag 'posts'
+
     await connectToDB()
 
     const User = mongoose.models.User || mongoose.model("User", userSchema)
