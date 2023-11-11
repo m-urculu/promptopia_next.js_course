@@ -13,6 +13,10 @@ export const GET = async (request) => {
 
     return new Response(JSON.stringify(prompts), {
       status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
+      }
     })
   } catch (error) {
     console.error("An error occurred:", error.message)
