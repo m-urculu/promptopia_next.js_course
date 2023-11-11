@@ -33,6 +33,7 @@ next-env.d.ts
 
 # enviroment variables
 .env
+.env.local
 
 # notes
 TODO.txt

@@ -32,7 +32,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   //
 
   const tags = post.tag.split(" ")
-  // console.log(post)
+   console.log(post)
 
   // Rest of the component rendering
 
@@ -55,10 +55,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
           <div className='flex flex-col'>
             <p className='font-satoshi font-semibold text-white'>
-              {post.creator.username}
+              {post?.creator?.username}
             </p>
             <p className='font-inter text-sm text-gray-200'>
-              {post.creator.email}
+              {post?.creator?.email}
             </p>
           </div>
         </div>
@@ -113,7 +113,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         ))}
       </div>
 
-      {session?.user.id === post.creator._id && pathName === "/profile" && (
+      {session?.user.id === post?.creator?._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
             className='font-inter text-sm text-purple-500 cursor-pointer'
