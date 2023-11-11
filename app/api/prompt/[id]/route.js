@@ -11,6 +11,11 @@ export const GET = async (request, { params }) => {
 
     return new Response(JSON.stringify(prompt), {
       status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
     })
   } catch (error) {
     return new Response("Failed to fetch all prompts", { status: 500 })
@@ -37,7 +42,13 @@ export const PATCH = async (request, { params }) => {
 
     await existingPrompt.save()
 
-    return new Response(JSON.stringify(existingPrompt), { status: 200 })
+    return new Response(JSON.stringify(existingPrompt), { 
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      } })
   } catch (error) {
     return new Response("Failed to update prompt", { status: 500 })
   }
@@ -50,7 +61,14 @@ export const DELETE = async (request, { params }) => {
 
     await Prompt.findByIdAndRemove(params.id)
 
-    return new Response("Prompt deleted successfully", { status: 200 })
+    return new Response("Prompt deleted successfully", { 
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      } 
+    })
   } catch (error) {
     return new Response("Failed to delete prompt", { status: 500 })
   }
