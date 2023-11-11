@@ -1,5 +1,7 @@
 import { connectToDB } from "@utils/database"
 import Prompt from "@models/prompt"
+import { Request, NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 
 // GET (read)
 export const GET = async (request, { params }) => {

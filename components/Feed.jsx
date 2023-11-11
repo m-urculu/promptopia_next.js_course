@@ -35,7 +35,10 @@ const Feed = () => {
   }, [])
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt", { next: { tags: ['posts'] }})
+    const response = await fetch("/api/prompt", { 
+      next: { tags: ['posts'] },
+      cache: 'no-store'
+    })
     const data = await response.json()
 
     const imagePosts = data.filter((post) => post.img !== "")
