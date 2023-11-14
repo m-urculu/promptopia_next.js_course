@@ -32,7 +32,6 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   //
 
   const tags = post.tag.split(" ")
-   console.log(post)
 
   // Rest of the component rendering
 
