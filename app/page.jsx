@@ -11,12 +11,11 @@ const Home = () => {
         <br className='max-md:hidden' />
         <span className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-600'>
           {" "}
-          AI-Powered Prompts
+          AI Prompts
         </span>
       </h1>
       <p className='desc text-center'>
-        Promptopia is an open-source AI prompting tool for modern world to
-        discover, create and share creative prompts.
+        Promptopia is an AI tool to discover, create and share creative prompts.
       </p>
       <Feed />
     </section>

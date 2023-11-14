@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { signIn, signOut, useSession, getProviders } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 const Nav = () => {
   const { data: session } = useSession()
@@ -20,8 +21,16 @@ const Nav = () => {
     setUpProviders()
   }, [])
 
-  async function goHome() {
+  // redirect after logging out
+  async function logOut() {
     await signOut({ callbackUrl: "/" })
+  }
+  // and after logging in
+  async function logIn(e) {
+    e.preventDefault()
+    await signIn()
+    const router = useRouter()
+    router.push("/")
   }
 
   return (
@@ -46,7 +55,7 @@ const Nav = () => {
 
             <button
               type='button'
-              onClick={signOut && goHome}
+              onClick={signOut && logOut}
               className='outline_btn'
             >
               Sign Out
@@ -69,7 +78,7 @@ const Nav = () => {
                 <button
                   type='button'
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => signIn(provider.id) && logIn}
                   className='white_btn'
                 >
                   Sign In
@@ -129,7 +138,7 @@ const Nav = () => {
                 <button
                   type='button'
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => signIn(provider.id) && logIn}
                   className='white_btn'
                 >
                   Sign In

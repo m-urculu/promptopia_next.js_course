@@ -4,6 +4,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import { getSession } from "next-auth/react"
 
 import Form from "@components/Form"
 
@@ -64,7 +65,8 @@ const CreatePrompt = () => {
 
   const refreshSession = async () => {
     try {
-      await session?.refetch()
+      const refreshedSession = await getSession()
+      refreshSession()
     } catch (error) {
       console.log(error)
     }

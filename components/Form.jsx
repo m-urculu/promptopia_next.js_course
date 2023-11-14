@@ -29,13 +29,12 @@ const Form = ({
   }, [tagInput])
 
   return (
-    <section className='w-full max-w-full flex-start flex-col'>
+    <section className='w-full max-w-full flex items-center justify-center flex-col'>
       <h1 className='head_text text-left'>
         <span className='purple_gradient'>{type} Post</span>
       </h1>
       <p className='desc text-left max-w-md'>
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform.
+        {type} and share your prompts with the world.
       </p>
 
       <form
@@ -45,17 +44,17 @@ const Form = ({
       >
         <label>
           <span
-            className='font-satoshi font-semibold 
+            className='text-2xl font-bold 
           text-base text-gray-200'
           >
             Title
           </span>
-          <textarea
+          <input
             value={post.title}
             onChange={(e) => setPost({ ...post, title: e.target.value })}
             placeholder='Write your title here...'
             required
-            className='form_titlearea max-h-11'
+            className='form_input resize-none bg-opacity-20 glassmorphism_formInput'
           />
         </label>
         <div className='flex-center'>
@@ -85,8 +84,8 @@ const Form = ({
         </span>
         <label>
           <span
-            className='font-satoshi font-semibold 
-          text-base text-gray-200'
+            className='text-xl font-bold 
+            text-base text-gray-200'
           >
             Your AI Prompt
           </span>
@@ -96,16 +95,16 @@ const Form = ({
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder='Write your prompt here...'
             required
-            className='form_textarea'
+            className='form_input resize-none bg-opacity-20 glassmorphism_formInput h-[200px]'
           />
         </label>
         <label>
           <span
-            className='font-satoshi font-semibold 
-          text-base text-gray-200'
+            className='text-xl font-bold 
+            text-base text-gray-200'
           >
-            Tag {` `}
-            <span className='font-normal text-gray-400 text-sm'>
+            Tag
+            <span className='font-normal text-gray-400 text-sm ml-[10px]'>
               (#chatGPT, #fitness, #webdevelopment, #midjourney,
               #stable-difussion)
             </span>
@@ -130,7 +129,7 @@ const Form = ({
             }}
             placeholder='#tag'
             required
-            className='form_input'
+            className='form_input resize-none bg-opacity-20 glassmorphism_formInput'
           />
         </label>
         <div className='flex-end mx-3 mt-0.5 gap-5'>
@@ -141,7 +140,7 @@ const Form = ({
             type='submit'
             disabled={submitting}
             className='px-5 py-1.5 text-sm 
-            bg-purple-700 rounded-full text-white'
+            bg_purple_gradient rounded-full text-white'
           >
             {submitting ? `${type}...` : type}
           </button>

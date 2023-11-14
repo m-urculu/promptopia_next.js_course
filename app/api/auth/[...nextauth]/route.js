@@ -1,8 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-
 import User from "@models/user"
-import { ConnectToDB, connectToDB } from "@utils/database"
+import { connectToDB } from "@utils/database"
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_JWT_SIGNIN_PRIVATE_KEY,
@@ -22,7 +21,6 @@ const handler = NextAuth({
         return session
       } catch (error) {
         console.log(error)
-        // Handle the error gracefully
         throw error
       }
     },
