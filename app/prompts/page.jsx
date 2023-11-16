@@ -1,3 +1,5 @@
+"use client"
+
 import dynamic from "next/dynamic"
 
 const Feed = dynamic(() => import("@components/Feed"))
@@ -17,10 +19,7 @@ const Home = () => {
       <p className='desc text-center'>
         Promptopia is an AI tool to discover, create and share creative prompts.
       </p>
-      {/* <Feed /> */}
-      <form action='/prompts'>
-        <button type='submit'>Go to Prompts</button>
-      </form>
+      <Feed />
     </section>
   )
 }
