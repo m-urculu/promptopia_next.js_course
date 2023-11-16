@@ -6,7 +6,7 @@ import mongoose from "mongoose"
 
 export const GET = async (request) => {
   const now = new Date()
-  const allowedTime = new Date("2023-11-16T22:51:00Z") // Replace with your desired time
+  const allowedTime = new Date("2023-11-16T22:59:00Z") // Replace with your desired time
   if (now >= allowedTime) {
     console.log(now)
     console.log(allowedTime)
@@ -35,11 +35,11 @@ export const GET = async (request) => {
   } else {
     console.error("An error occurred:", error.message)
     return new Response(
-      JSON.stringify({
+      JSON.stringify(undefined, {
+        status: 500,
         message: "Failed to fetch all prompts",
         error: error.message,
-      }),
-      { status: 500 }
+      })
     )
     // Deny the request or return a custom response
   }
