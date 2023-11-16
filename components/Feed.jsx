@@ -35,7 +35,7 @@ const Feed = () => {
   }, [])
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt")
+    const response = await fetch(`/api/prompt?cacheBust=${Date.now()}`);
     const data = await response.json()
 
     const imagePosts = data.filter((post) => post.img !== "")
@@ -114,6 +114,9 @@ const Feed = () => {
     }))
   }
 
+
+
+  
   return (
     //... same JSX with updated states and renamed functions//
     <section className='feed'>
