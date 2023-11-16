@@ -4,19 +4,17 @@ import mongoose from "mongoose"
 
 // fetch prompts on database
 
-const now = new Date()
-const allowedTime = new Date("2023-11-16T11:40:00Z") // Replace with your desired time
-
 export const GET = async (request) => {
+  const now = new Date()
+  const allowedTime = new Date("2023-11-16T22:51:00Z") // Replace with your desired time
   if (now >= allowedTime) {
+    console.log(now)
+    console.log(allowedTime)
     // Allow the request and return the response
     try {
       await connectToDB()
-
       const User = mongoose.models.User || mongoose.model("User", userSchema)
-
       const prompts = await Prompt.find({}).populate("creator")
-
       return new Response(JSON.stringify(prompts), {
         status: 200,
         headers: {
