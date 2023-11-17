@@ -1,8 +1,3 @@
-import dynamic from "next/dynamic"
-
-const Feed = dynamic(() => import("@components/Feed"))
-// import Feed from "@components/Feed"
-
 const Home = () => {
   return (
     <section className='w-full flex-center flex-col'>
@@ -18,9 +13,13 @@ const Home = () => {
         Promptopia is an AI tool to discover, create and share creative prompts.
       </p>
       {/* <Feed /> */}
-      <form action='/prompts'>
-        <button type='submit'>Go to Prompts</button>
-      </form>
+      <div className='mt-[80px]'>
+        <form action='/prompts'>
+          <button className='white_btn_large' type='submit'>
+            Check the latest prompts!
+          </button>
+        </form>
+      </div>
     </section>
   )
 }

@@ -81,6 +81,10 @@
   @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-transparent hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
+.white_btn_large {
+  @apply rounded-full border border-white bg-white py-3 px-10 text-black transition-all hover:bg-transparent hover:text-white text-center text-xl font-inter flex items-center justify-center;
+}
+
 .white_img_btn {
   @apply rounded-full bg-white py-1 px-5 text-black transition-all hover:bg-purple-700 border border-white hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
