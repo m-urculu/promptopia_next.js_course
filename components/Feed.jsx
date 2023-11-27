@@ -1,13 +1,14 @@
 "use client"
-import { useState, useEffect } from "react"
 import PromptCard from "./PromptCard"
+import { v4 as uuidv4 } from "uuid"
+import React, { useState, useEffect, useRef } from "react"
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
       {data.map((post) => (
         <PromptCard
-          key={post._id}
+          key={uuidv4()} //Generate unique id for each post
           post={post}
           handleTagClick={handleTagClick}
         />
@@ -17,7 +18,8 @@ const PromptCardList = ({ data, handleTagClick }) => {
 }
 
 const Feed = () => {
-  //-----------------------useState's for storing data---------------------------//
+  //-----------------------useState's data---------------------------//
+  const pageRef = useRef(1)
   const [state, setState] = useState({
     posts: [], // feed posts
     renderedPosts: [], // rendered posts on the screen
@@ -28,27 +30,70 @@ const Feed = () => {
     textPosts: [], // feed posts which only contain texts
     isTextClicked: false, // checks if text filter button clicked
     isImageClicked: false, // checks if image filter button clicked
+    data: [],
   })
 
-  useEffect(() => {
-    fetchPosts() // initial fetch
-  }, [])
-
+  //fetch posts from server dynamically
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt")
-    const data = await response.json()
-
-    const imagePosts = data.filter((post) => post.img !== "")
-    const textPosts = data.filter((post) => post.img === "")
-
-    setState((oldState) => ({
-      ...oldState,
-      posts: data,
-      renderedPosts: data,
-      imagePosts,
-      textPosts,
-    }))
+    console.log(state.data.length)
+    if (state.data.length == 6 || pageRef.current == 1) {
+      const response = await fetch(`/api/prompt?page=${pageRef.current}`)
+      state.data = await response.json()
+      console.log(state.data.length)
+      console.log(state.data)
+      //filter image and text posts
+      const imagePosts = state.data.filter((post) => post.img !== "")
+      const textPosts = state.data.filter((post) => post.img === "")
+      setState((oldState) => ({
+        ...oldState,
+        posts: [...state.data, ...oldState.posts],
+        renderedPosts: [...state.data, ...oldState.renderedPosts],
+        imagePosts,
+        textPosts,
+      }))
+    }
   }
+
+  // handle scrolling logic
+  useEffect(() => {
+    //next page function
+    const nextPage = () => {
+      pageRef.current = pageRef.current + 1
+    }
+
+    //first page fetch
+    if (pageRef.current == 1) {
+      console.log(`client page:${pageRef.current}`)
+      fetchPosts()
+      nextPage()
+      console.log(`client page:${pageRef.current}`)
+    }
+
+    //handle scrolling function
+    const handleScroll = () => {
+      const windowHeight =
+        window.innerHeight || document.documentElement.offsetHeight
+      const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      )
+      const windowBottom = windowHeight + window.scrollY
+      //trigger
+      if (windowBottom >= docHeight) {
+        console.log(`client page:${pageRef.current}`)
+        fetchPosts() // Call fetchPosts inside the setState callback
+        nextPage()
+        console.log(`client page:${pageRef.current}`)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   // handle Search
   const handleSearchChange = (e) => {
@@ -72,9 +117,9 @@ const Feed = () => {
   // prevent page re-load when pressing enter in the search field
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
-      e.preventDefault();
+      e.preventDefault()
     }
-  };
+  }
 
   // filter the prompts by username, prompt and tag.
   const filterPrompts = (searchText) => {
@@ -114,9 +159,6 @@ const Feed = () => {
     }))
   }
 
-
-
-  
   return (
     //... same JSX with updated states and renamed functions//
     <section className='feed'>

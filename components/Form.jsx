@@ -12,6 +12,7 @@ const Form = ({
   const [tagInput, setTagInput] = useState(post.tag)
   const inputRef = useRef()
 
+  //formatting tags
   useEffect(() => {
     if (inputRef.current) {
       const { value } = inputRef.current

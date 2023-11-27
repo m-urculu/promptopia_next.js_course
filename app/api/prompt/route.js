@@ -6,9 +6,22 @@ import mongoose from "mongoose"
 
 export const GET = async (request) => {
   try {
+    //connect to db
     await connectToDB()
+    //definitions
     const User = mongoose.models.User || mongoose.model("User", userSchema)
-    const prompts = await Prompt.find({}).populate("creator")
+    const url = new URL(request.url)
+    const page = url.searchParams.get("page")
+    console.log(`server page:${page}`) // Output: 1 // Get the page number from the request query parameters
+    const perPage = 6 // Number of prompts per page
+    const skip = (page - 1) * perPage // Calculate the number of prompts to skip
+    //fetch appropriate prompts
+    const prompts = await Prompt.find({})
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(perPage)
+      .populate("creator")
+    //return prompts
     return new Response(JSON.stringify(prompts), {
       status: 200,
       headers: {
@@ -20,7 +33,7 @@ export const GET = async (request) => {
     console.error("An error occurred:", error.message)
     return new Response(
       JSON.stringify({
-        message: "Failed to fetch all prompts",
+        message: "Failed to fetch prompts",
         error: error.message,
       }),
       { status: 500 }

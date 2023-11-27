@@ -3,7 +3,7 @@ import Prompt from "@models/prompt"
 import { revalidatePath } from "next/cache"
 
 export const POST = async (req, res) => {
-  const { userId, title, prompt, tag, img } = await req.json()
+  const { userId, title, prompt, tag, img, date } = await req.json()
 
   try {
     await connectToDB()
@@ -13,6 +13,7 @@ export const POST = async (req, res) => {
       prompt,
       tag,
       img,
+      date,
     })
 
     const savePrompt = async () => {
@@ -41,13 +42,6 @@ export const POST = async (req, res) => {
         },
       }
     )
-    // return new Response(JSON.stringify(newPrompt), {
-    //   status: 201,
-    //   headers: {
-    //   'Content-Type': 'application/json',
-    //   'Cache-Control': 'no-cache, no-store, must-revalidate', // Added Cache-Control header
-    //   }
-    // })
   } catch (error) {
     console.log(error)
     return new Response("Failed to create a new prompt", { status: 500 })

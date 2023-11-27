@@ -17,6 +17,7 @@ const CreatePrompt = () => {
     title: "",
     prompt: "",
     tag: "",
+    date: new Date().toISOString(),
   })
 
   const handleImageChange = (e) => {
@@ -50,6 +51,7 @@ const CreatePrompt = () => {
           img: post.img,
           prompt: post.prompt,
           tag: post.tag,
+          date: post.date
         }),
       })
       if (response.ok) {

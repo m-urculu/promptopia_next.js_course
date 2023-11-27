@@ -22,14 +22,6 @@ const Home = () => {
       <p className='desc text-center'>
         Promptopia is an AI tool to discover, create and share creative prompts.
       </p>
-      {/* <Feed /> */}
-      {/* <div className='mt-[80px]'>
-        <form action='/prompts'>
-          <button className='white_btn_large' type='submit'>
-            Check the latest prompts!
-          </button>
-        </form>
-      </div> */}
     </section>
   )
   // Your component JSX goes here

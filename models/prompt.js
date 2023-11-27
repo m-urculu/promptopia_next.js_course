@@ -22,6 +22,10 @@ const PromptSchema = new Schema({
     type: String,
     required: [false],
   },
+  date: {
+    type: String,
+    required: [true, "Date is required"]
+  }
 })
 
 const Prompt = models.Prompt || model("Prompt", PromptSchema)
